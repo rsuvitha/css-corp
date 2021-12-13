@@ -137,11 +137,6 @@ class App extends Component {
 
     return (
       <>
-<<<<<<< HEAD
-        <h1>{title}</h1>
-        <h2>{caption}</h2>
-        <User fname="Suvitha" lname="Rajasekaran" />
-=======
         <h1 id="heading">{greet}</h1>
         <button
           type="button"
@@ -164,7 +159,6 @@ class App extends Component {
         <button type="button" onClick={this.changeUserName}>
           Change Username
         </button>
->>>>>>> 75db290babfcab88a4509a4ed4039a6d84825e64
       </>
     );
   }
