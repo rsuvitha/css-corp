@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import AppHook from './AppHook';
-import Todo from './Pages/Todo';
 import './root.css';
+import App from './Weather/App';
 
-ReactDOM.render(<Todo />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
 
 // Components
 // 1. function components
