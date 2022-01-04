@@ -1,8 +1,4 @@
 node_modules
 package-lock.json
 yarn.lock
-<<<<<<< HEAD
-node_modules
-=======
 db.json
->>>>>>> c6fcb93301d147cfef50c6d0c8a423bbf4e2a2af
