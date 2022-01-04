@@ -41,3 +41,6 @@ ReactDOM.render(<Todo />, document.getElementById('root'));
 //     );
 //   }
 // }
+
+ReactDOM.render(<Todo />, document.getElementById('root'));
+
