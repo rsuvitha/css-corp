@@ -1,9 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import App from './app';
+// import AppHook from './AppHook';
 import './root.css';
 import App from './Weather/App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById('root'),
+);
 
 // Components
 // 1. function components
@@ -40,6 +48,3 @@ ReactDOM.render(<App />, document.getElementById('root'));
 //     );
 //   }
 // }
-
-ReactDOM.render(<Todo />, document.getElementById('root'));
-
