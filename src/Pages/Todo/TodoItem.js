@@ -66,4 +66,9 @@ TodoItem.propTypes = {
   ).isRequired,
 };
 
-export default memo(TodoItem);
+export default memo(
+  TodoItem,
+  (prevProps, nextProps) =>
+    prevProps.item.id === nextProps.item.id &&
+    prevProps.item.isDone === nextProps.item.isDone,
+);

@@ -5,6 +5,7 @@ import { ThemeContext } from '../../context/themeContext';
 
 const TodoList = ({ todoList, toggleComplete, deleteTodo, httpStatus }) => {
   console.log('TodoList render');
+
   return (
     <div className="flex-1">
       <ThemeContext.Consumer>
