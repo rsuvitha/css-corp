@@ -1,29 +1,35 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import SearchInput from './SearchInput';
 import WeatherReport from './WeatherReport';
 
 class App extends Component {
+  state = { weatherData: null, searchtemp: null };
 
-    state = { weatherResult: null, searchtemperature: null }
+  searchlocations = async (searchInputValue, searchtemp) => {
+    const response = await fetch(
+      `http://api.openweathermap.org/data/2.5/weather?q=${searchInputValue}&units=imperial&appid=333458e05b25c5e69a7c22d64b7bc47f`,
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({ weatherData: data });
+      });
+  };
 
-    searchlocations = async (searchInputValue, searchtemperature) => {
-        const response = await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${searchInputValue}&units=imperial&appid=20083fe902da86695ef7fc8cd4debaab`)
-        this.setState({ weatherResult: response.data })
-    }
-
-    render() {
-        return (
-            <div className="weather_container bg-gray-100 p-3">
-                <div className="bg-gray-50 p-4 rounded w-2/4 m-auto">
-                    <h5 className="border-red-400 pt-2 font-semibold border-b-2">WeatherWatch</h5>
-                    <City onSearchSubmit={this.searchlocations} />
-                    {this.state.weatherResult ? <Weather weatherResult={this.state.weatherResult} searchtemperature={this.state.searchtemperature} /> : <div></div>}
-                </div>
-            </div>
-        )
-    }
-
+  render() {
+    return (
+      <div className="p-4 mt-8 rounded w-2/4 m-auto bg-green-100">
+        <h5 className="text-center pt-3 text-3xl">Weather Report</h5>
+        <SearchInput onSearchSubmit={this.searchlocations} />
+        {this.state.weatherData
+          ? (
+            <WeatherReport
+              weatherData={this.state.weatherData}
+              searchtemp={this.state.searchtemp}
+            />
+          ) : <div />}
+      </div>
+    );
+  }
 }
 
-export default App; 
+export default App;
